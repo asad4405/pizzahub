@@ -9,8 +9,16 @@ export const auth = betterAuth({
     database: mongodbAdapter(db, {
         client,
     }),
-    
+
     emailAndPassword: {
         enabled: true,
+    },
+    user: {
+        additionalFields: {
+            role: {
+                type: ['customer', 'vendor', 'admin'],
+                input: true,
+            }
+        }
     },
 });

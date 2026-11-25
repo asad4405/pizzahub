@@ -4,7 +4,7 @@ import { ArrowRight, Flame, ShieldCheck, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import SignUpDialog from "../common/auth/SignUpDialog";
+import SignUpDialog from "../auth/SignUpDialog";
 
 const Banner = () => {
     return (
