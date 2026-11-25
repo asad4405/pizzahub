@@ -4,6 +4,10 @@ import {
     UtensilsCrossed,
     Users,
     Pizza,
+    Store,
+    CreditCard,
+    Crown,
+    ClipboardList,
     type LucideIcon,
 } from "lucide-react";
 
@@ -26,23 +30,25 @@ export const normalizeDashboardRole = (rawRole?: string): DashboardRole => {
 export const getDashboardNavItems = (role: DashboardRole): DashboardNavItem[] => {
     if (role === "admin") {
         return [
-            { label: "Overview", href: "/dashboard/admin/overview", icon: LayoutDashboard },
-            { label: "Users", href: "/dashboard/admin", icon: Users },
-            { label: "Vendors", href: "/dashboard/vendor", icon: UtensilsCrossed },
-            { label: "Orders", href: "/dashboard/customer/orders", icon: ShoppingBag },
+            { label: "Overview", href: "/dashboard/admin", icon: LayoutDashboard },
+            { label: "Users", href: "/dashboard/admin/users", icon: Users },
+            { label: "Menu Items", href: "/dashboard/admin/menu-items", icon: UtensilsCrossed },
+            { label: "Transactions", href: "/dashboard/admin/transactions", icon: CreditCard },
         ];
     }
 
     if (role === "vendor") {
         return [
-            { label: "Overview", href: "/dashboard/vendor/overview", icon: LayoutDashboard },
-            { label: "Menu", href: "/dashboard/vendor", icon: UtensilsCrossed },
-            { label: "Orders", href: "/dashboard/vendor/orders", icon: ShoppingBag },
+            { label: "Overview", href: "/dashboard/vendor", icon: LayoutDashboard },
+            { label: "Restaurant", href: "/dashboard/vendor/restaurant", icon: Store },
+            { label: "Menu", href: "/dashboard/vendor/menu", icon: UtensilsCrossed },
+            { label: "Orders", href: "/dashboard/vendor/orders", icon: ClipboardList },
+            { label: "Subscription", href: "/dashboard/vendor/subscription", icon: Crown },
         ];
     }
 
     return [
-        { label: "Overview", href: "/dashboard/customer/overview", icon: LayoutDashboard },
+        { label: "Overview", href: "/dashboard/customer", icon: LayoutDashboard },
         { label: "Orders", href: "/dashboard/customer/orders", icon: ShoppingBag },
         { label: "Browse Menu", href: "/browse-menu", icon: Pizza },
     ];
