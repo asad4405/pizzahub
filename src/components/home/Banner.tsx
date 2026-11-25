@@ -4,6 +4,7 @@ import { ArrowRight, Flame, ShieldCheck, Clock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import SignUpDialog from "../common/auth/SignUpDialog";
 
 const Banner = () => {
     return (
@@ -39,15 +40,13 @@ const Banner = () => {
                                 <ArrowRight className="h-4 w-4" />
                             </Link>
 
-                            <Link
-                                href="/sign-up"
-                                className={cn(
+                            <SignUpDialog
+                                label="Join as a Vendor"
+                                triggerClassName={cn(
                                     buttonVariants({ variant: "outline", size: "lg" }),
-                                    "h-12 border-orange-200 bg-white px-6 text-base font-semibold text-stone-800 hover:bg-orange-50 hover:text-red-600"
+                                    "h-12 cursor-pointer border-orange-200 bg-white px-6 text-base font-semibold text-stone-800 hover:bg-orange-50 hover:text-red-600"
                                 )}
-                            >
-                                Join as a Vendor
-                            </Link>
+                            />
                         </div>
 
                         <div className="grid grid-cols-2 gap-4 border-t border-orange-200/70 pt-6 sm:max-w-md">

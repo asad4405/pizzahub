@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Pizza, Mail, Phone, MapPin } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import SignInDialog from "./auth/SignInDialog";
+import SignUpDialog from "./auth/SignUpDialog";
 
 const Footer = () => {
     return (
@@ -92,20 +94,16 @@ const Footer = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link
-                                    href="/sign-in"
-                                    className="transition-colors hover:text-red-400"
-                                >
-                                    Sign In
-                                </Link>
+                            <SignInDialog
+                                label="Sign In"
+                                triggerClassName="cursor-pointer transition-colors hover:text-red-400"
+                            />
                             </li>
                             <li>
-                                <Link
-                                    href="/sign-up"
-                                    className="transition-colors hover:text-red-400"
-                                >
-                                    Sign Up
-                                </Link>
+                            <SignUpDialog
+                                label="Sign Up"
+                                triggerClassName="cursor-pointer transition-colors hover:text-red-400"
+                            />
                             </li>
                         </ul>
                     </div>
