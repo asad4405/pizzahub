@@ -39,8 +39,10 @@ const DashboardSidebar = ({ role }: { role: DashboardRole }) => {
     };
 
     return (
-        <Sidebar className="border-r border-orange-200/80 bg-amber-50">
-            <SidebarHeader className="border-b border-orange-200/70 bg-amber-50 p-4">
+        <Sidebar
+            collapsible="none"
+            className="h-auto w-64 shrink-0 border-r border-orange-200/80 bg-amber-50">
+            <SidebarHeader className=" bg-amber-50 p-4">
                 <div className="flex items-center justify-between gap-2">
                     <Link href="/" className="flex items-center gap-2.5">
                         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-red-600 text-white shadow-xs">

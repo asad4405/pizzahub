@@ -12,20 +12,20 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     const role = normalizeDashboardRole(rawRole);
 
     return (
-        <SidebarProvider>
-            <div className="flex min-h-screen w-full bg-amber-50/70 text-stone-900">
-                <DashboardSidebar role={role} />
+        <div className="min-h-screen w-full bg-amber-50 text-stone-900">
+            <div className="mx-auto flex min-h-screen w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+                <SidebarProvider className="flex min-h-screen w-full">
+                    <DashboardSidebar role={role} />
 
-                <SidebarInset className="min-w-0 flex-1 bg-amber-50/70">
-                    <div className="mx-auto flex min-h-screen max-w-7xl flex-col">
+                    <SidebarInset className="flex min-w-0 flex-1 flex-col bg-amber-50/70">
                         <DashboardHeader role={role} userName={session?.user?.name} />
-                        <main className="mx-auto w-full max-w-7xl flex-1 p-4 md:p-6">
+                        <main className="w-full flex-1 py-4 md:py-6 md:pl-6">
                             {children}
                         </main>
-                    </div>
-                </SidebarInset>
+                    </SidebarInset>
+                </SidebarProvider>
             </div>
-        </SidebarProvider>
+        </div>
     );
 };
 
