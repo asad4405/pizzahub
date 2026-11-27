@@ -30,7 +30,7 @@ const Banner = () => {
 
                         <div className="flex flex-wrap items-center gap-4 pt-2">
                             <Link
-                                href="/browse-menu"
+                                href="/menu"
                                 className={cn(
                                     buttonVariants({ size: "lg" }),
                                     "h-12 bg-red-600 px-6 text-base font-semibold text-white shadow-sm hover:bg-red-700"

@@ -50,6 +50,6 @@ export const getDashboardNavItems = (role: DashboardRole): DashboardNavItem[] =>
     return [
         { label: "Overview", href: "/dashboard/customer", icon: LayoutDashboard },
         { label: "Orders", href: "/dashboard/customer/orders", icon: ShoppingBag },
-        { label: "Browse Menu", href: "/browse-menu", icon: Pizza },
+        { label: "Browse Menu", href: "/menu", icon: Pizza },
     ];
 };

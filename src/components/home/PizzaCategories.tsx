@@ -15,37 +15,37 @@ const categories = [
         name: "Classic Pizzas",
         description: "Timeless Margherita, Pepperoni, and cheesy favorites.",
         icon: Pizza,
-        href: "/browse-menu?category=Classic+Pizzas",
+        href: "/menu?category=Classic+Pizzas",
     },
     {
         name: "Vegetarian Pizzas",
         description: "Loaded with farm-fresh veggies, olives, and herbs.",
         icon: Leaf,
-        href: "/browse-menu?category=Vegetarian+Pizzas",
+        href: "/menu?category=Vegetarian+Pizzas",
     },
     {
         name: "Meat Lovers",
         description: "Hearty toppings of beef, chicken, sausage, and pepperoni.",
         icon: Beef,
-        href: "/browse-menu?category=Meat+Lovers",
+        href: "/menu?category=Meat+Lovers",
     },
     {
         name: "Specialty / Gourmet Pizzas",
         description: "Chef-crafted signature recipes with artisanal cheeses.",
         icon: Sparkles,
-        href: "/browse-menu?category=Specialty+%2F+Gourmet+Pizzas",
+        href: "/menu?category=Specialty+%2F+Gourmet+Pizzas",
     },
     {
         name: "Sides & Appetizers",
         description: "Garlic knots, spicy wings, and cheesy breadsticks.",
         icon: UtensilsCrossed,
-        href: "/browse-menu?category=Sides+%26+Appetizers",
+        href: "/menu?category=Sides+%26+Appetizers",
     },
     {
         name: "Beverages & Desserts",
         description: "Chilled drinks, shakes, and warm chocolate lava cakes.",
         icon: CupSoda,
-        href: "/browse-menu?category=Beverages+%26+Desserts",
+        href: "/menu?category=Beverages+%26+Desserts",
     },
 ];
 

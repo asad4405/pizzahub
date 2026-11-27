@@ -71,7 +71,7 @@ const Navbar = () => {
                         Home
                     </Link>
                     <Link
-                        href="/browse-menu"
+                        href="/menu"
                         className="text-sm font-medium text-stone-700 transition-colors hover:text-red-600"
                     >
                         Browse Menu
@@ -199,7 +199,7 @@ const Navbar = () => {
                                 <SheetClose
                                     render={
                                         <Link
-                                            href="/browse-menu"
+                                            href="/menu"
                                             className="rounded-md px-2 py-2 text-sm font-medium text-stone-700 hover:bg-orange-100/60 hover:text-red-600"
                                         />
                                     }

@@ -87,7 +87,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="/browse-menu"
+                                    href="/menu"
                                     className="transition-colors hover:text-red-400"
                                 >
                                     Browse Menu
@@ -115,7 +115,7 @@ const Footer = () => {
                         <ul className="mt-4 space-y-2.5 text-sm">
                             <li>
                                 <Link
-                                    href="/browse-menu?category=Classic+Pizzas"
+                                    href="/menu?category=Classic+Pizzas"
                                     className="transition-colors hover:text-red-400"
                                 >
                                     Classic Pizzas
@@ -123,7 +123,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="/browse-menu?category=Vegetarian+Pizzas"
+                                    href="/menu?category=Vegetarian+Pizzas"
                                     className="transition-colors hover:text-red-400"
                                 >
                                     Vegetarian Pizzas
@@ -131,7 +131,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="/browse-menu?category=Meat+Lovers"
+                                    href="/menu?category=Meat+Lovers"
                                     className="transition-colors hover:text-red-400"
                                 >
                                     Meat Lovers
@@ -139,7 +139,7 @@ const Footer = () => {
                             </li>
                             <li>
                                 <Link
-                                    href="/browse-menu?category=Specialty+%2F+Gourmet+Pizzas"
+                                    href="/menu?category=Specialty+%2F+Gourmet+Pizzas"
                                     className="transition-colors hover:text-red-400"
                                 >
                                     Specialty &amp; Gourmet
@@ -174,7 +174,7 @@ const Footer = () => {
                 <div className="flex flex-col items-center justify-between gap-4 text-xs text-stone-500 sm:flex-row">
                     <p>&copy; 2026 PizzaHub. All rights reserved.</p>
                     <div className="flex items-center gap-6">
-                        <Link href="/browse-menu" className="hover:text-stone-300">
+                        <Link href="/menu" className="hover:text-stone-300">
                             Menu Policy
                         </Link>
                         <Link href="/sign-up" className="hover:text-stone-300">

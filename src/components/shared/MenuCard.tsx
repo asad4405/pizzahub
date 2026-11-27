@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { MapPin, Store } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,13 +10,29 @@ import { MenuItemType } from "@/types/CategoryType";
 
 interface MenuCardProps {
     item: MenuItemType;
+    isLoggedIn?: boolean;
+    loginPath?: string;
 }
 
-const MenuCard = ({ item }: MenuCardProps) => {
+const MenuCard = ({
+    item,
+    isLoggedIn = true,
+    loginPath = "/sign-in",
+}: MenuCardProps) => {
+    const router = useRouter();
+
     const vendorDisplay =
         item.vendorName?.trim() ||
         item.businessName?.trim() ||
         item.vendorId;
+
+    const handleViewDetails = () => {
+        if (!isLoggedIn) {
+            router.push(`${loginPath}?callbackUrl=/menu/${item._id}`);
+            return;
+        }
+        router.push(`/menu/${item._id}`);
+    };
 
     return (
         <Card className="group flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-orange-200/80 bg-white pt-0 shadow-xs transition-all hover:-translate-y-0.5 hover:shadow-md">
@@ -59,9 +77,12 @@ const MenuCard = ({ item }: MenuCardProps) => {
 
             <div className="border-t border-orange-100 bg-amber-50/40 px-4 py-3">
                 <Button
+                    type="button"
+                    onClick={handleViewDetails}
                     className="w-full rounded-xl bg-red-600 font-semibold text-white hover:bg-red-700"
-                    render={<Link href={`/menu/${item._id}`}>View Details</Link>}
-                />
+                >
+                    View Details
+                </Button>
             </div>
         </Card>
     );
