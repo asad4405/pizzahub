@@ -1,5 +1,3 @@
-export const instant = false;
-
 import { headers } from "next/headers";
 import Link from "next/link";
 import { Plus } from "lucide-react";

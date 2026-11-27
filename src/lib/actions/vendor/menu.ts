@@ -65,3 +65,103 @@ export async function createMenuItemAction(formData: FormData) {
         redirectTo: "/dashboard/vendor/menu",
     };
 }
+
+
+export async function updateMenuItemAction(formData: FormData) {
+    const id = String(formData.get("id") || "");
+    const vendorId = String(formData.get("vendorId") || "");
+    if (!id || !vendorId) {
+        return { error: "Invalid menu item." };
+    }
+
+    const image = String(formData.get("imageUrl") || "").trim();
+
+    const payload = {
+        vendorId,
+        itemName: String(formData.get("itemName") || "").trim(),
+        category: String(formData.get("category") || "").trim(),
+        price: Number(formData.get("price") || 0),
+        location: String(formData.get("location") || "").trim(),
+        description: String(formData.get("description") || "").trim(),
+        image,
+    };
+
+    const res = await fetch(`${API_URL}/api/menu-items/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+    });
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok || data.success === false) {
+        return { error: data.message || "Failed to update menu item." };
+    }
+
+    revalidatePath("/dashboard/vendor/menu");
+    revalidatePath(`/dashboard/vendor/menu/${id}/edit`);
+
+    return {
+        success: true,
+        message: data.message || "Menu item updated successfully!",
+        redirectTo: "/dashboard/vendor/menu",
+    };
+}
+
+export async function toggleMenuStatusAction(formData: FormData) {
+    const id = String(formData.get("id") || "");
+    const vendorId = String(formData.get("vendorId") || "");
+    const nextStatus = String(formData.get("nextStatus") || "inactive");
+    if (!id || !vendorId) {
+        return { error: "Invalid menu item." };
+    }
+
+    const res = await fetch(`${API_URL}/api/menu-items/${id}/status`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ vendorId, status: nextStatus }),
+    });
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok || data.success === false) {
+        return { error: data.message || "Failed to update status." };
+    }
+
+    revalidatePath("/dashboard/vendor/menu");
+
+    return {
+        success: true,
+        message: data.message || `Menu item marked as ${nextStatus}!`,
+    };
+}
+
+export async function deleteMenuItemAction(formData: FormData) {
+    const id = String(formData.get("id") || "");
+    const vendorId = String(formData.get("vendorId") || "");
+    if (!id || !vendorId) {
+        return { error: "Invalid menu item." };
+    }
+
+    const res = await fetch(
+        `${API_URL}/api/menu-items/${id}?vendorId=${encodeURIComponent(vendorId)}`,
+        {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ vendorId }),
+        }
+    );
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok || data.success === false) {
+        return { error: data.message || "Failed to delete menu item." };
+    }
+
+    revalidatePath("/dashboard/vendor/menu");
+
+    return {
+        success: true,
+        message: data.message || "Menu item deleted successfully!",
+    };
+}

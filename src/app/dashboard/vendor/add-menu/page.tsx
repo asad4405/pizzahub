@@ -1,5 +1,3 @@
-export const instant = false;
-
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import { getMyMenuItems } from "@/lib/actions/vendor/menu";

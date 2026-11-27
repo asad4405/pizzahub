@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { MapPin, Pencil, Trash2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { deleteMenuItemAction, toggleMenuStatusAction } from "@/lib/actions/vendor/menu";
 import { MenuItemType } from "@/types/CategoryType";
 
 const statusStyleMap: Record<string, string> = {
@@ -16,16 +19,43 @@ const statusStyleMap: Record<string, string> = {
 };
 
 const MenuItemCard = ({ item }: { item: MenuItemType }) => {
+    const router = useRouter();
     const nextStatus = item.status === "inactive" ? "pending" : "inactive";
     const badgeClass =
         statusStyleMap[item.status] || "bg-orange-100 text-red-700 border-orange-200";
+
+    const handleStatusAction = async (formData: FormData) => {
+        const res = await toggleMenuStatusAction(formData);
+        if (res?.error) {
+            toast.error(res.error, { position: "bottom-right" });
+            return;
+        }
+        if (res?.success) {
+            toast.success(res.message || "Status updated!", { position: "bottom-right" });
+            router.refresh();
+        }
+    };
+
+    const handleDeleteAction = async (formData: FormData) => {
+        const res = await deleteMenuItemAction(formData);
+        if (res?.error) {
+            toast.error(res.error, { position: "bottom-right" });
+            return;
+        }
+        if (res?.success) {
+            toast.success(res.message || "Menu item deleted successfully!", {
+                position: "bottom-right",
+            });
+            router.refresh();
+        }
+    };
 
     return (
         <Card className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-orange-200/80 bg-white pt-0 shadow-xs transition-all hover:-translate-y-0.5 hover:shadow-md">
             <div>
                 <div className="relative h-44 w-full overflow-hidden bg-amber-50">
                     <Image
-                        src={item.image || ""}
+                        src={item.image || "/placeholder.png"}
                         alt={item.itemName}
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
@@ -86,7 +116,7 @@ const MenuItemCard = ({ item }: { item: MenuItemType }) => {
 
                 <div className="flex items-center gap-1.5">
                     {item.status !== "rejected" && (
-                        <form>
+                        <form action={handleStatusAction}>
                             <input type="hidden" name="id" value={item._id} />
                             <input type="hidden" name="vendorId" value={item.vendorId} />
                             <input type="hidden" name="nextStatus" value={nextStatus} />
@@ -101,7 +131,7 @@ const MenuItemCard = ({ item }: { item: MenuItemType }) => {
                         </form>
                     )}
 
-                    <form>
+                    <form action={handleDeleteAction}>
                         <input type="hidden" name="id" value={item._id} />
                         <input type="hidden" name="vendorId" value={item.vendorId} />
                         <Button
