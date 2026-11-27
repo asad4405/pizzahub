@@ -32,7 +32,7 @@ export const getDashboardNavItems = (role: DashboardRole): DashboardNavItem[] =>
         return [
             { label: "Overview", href: "/dashboard/admin", icon: LayoutDashboard },
             { label: "Users", href: "/dashboard/admin/users", icon: Users },
-            { label: "Menu Items", href: "/dashboard/admin/menu-items", icon: UtensilsCrossed },
+            { label: "Menu Items", href: "/dashboard/admin/menu", icon: UtensilsCrossed },
             { label: "Transactions", href: "/dashboard/admin/transactions", icon: CreditCard },
         ];
     }
