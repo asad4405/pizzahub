@@ -20,12 +20,16 @@ export type MenuItemStatus = "pending" | "approved" | "rejected" | "inactive";
 export type MenuItemType = {
     _id: string;
     vendorId: string;
+    vendorName?: string;
+    businessName?: string;
     itemName: string;
     category: CategoryType;
     description: string;
     price: number;
     location: string;
     image: string;
+    images?: string[];
     status: MenuItemStatus;
+    isFeatured?: boolean;
     createdAt?: string;
 };
