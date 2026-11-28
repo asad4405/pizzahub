@@ -79,7 +79,7 @@ const MenuCard = ({
                 <Button
                     type="button"
                     onClick={handleViewDetails}
-                    className="w-full rounded-xl bg-red-600 font-semibold text-white hover:bg-red-700"
+                    className="w-full cursor-pointer rounded-xl bg-red-600 font-semibold text-white hover:bg-red-700"
                 >
                     View Details
                 </Button>

@@ -49,3 +49,22 @@ export async function getApprovedMenuItems(params?: {
 
     return items.filter((item) => item.status === "approved");
 }
+
+// menu details page
+export async function getMenuItemById(id: string): Promise<MenuItemType | null> {
+    if (!API_URL || !id) return null;
+
+    const res = await fetch(`${API_URL}/api/menu-items/${id}`, {
+        cache: "no-store",
+    });
+
+    if (res.status === 404 || !res.ok) return null;
+
+    const data = await res.json().catch(() => null);
+    const item: MenuItemType | null = data?.item ?? data?.data ?? data ?? null;
+
+    if (!item || !item._id) return null;
+    if (item.status && item.status !== "approved") return null;
+
+    return item;
+}
