@@ -7,7 +7,6 @@ import {
     Store,
     CreditCard,
     Crown,
-    ClipboardList,
     type LucideIcon,
 } from "lucide-react";
 
@@ -33,6 +32,7 @@ export const getDashboardNavItems = (role: DashboardRole): DashboardNavItem[] =>
             { label: "Overview", href: "/dashboard/admin", icon: LayoutDashboard },
             { label: "Users", href: "/dashboard/admin/users", icon: Users },
             { label: "Menu Items", href: "/dashboard/admin/menu", icon: UtensilsCrossed },
+            { label: "Orders", href: "/dashboard/admin/orders", icon: ShoppingBag },
             { label: "Transactions", href: "/dashboard/admin/transactions", icon: CreditCard },
         ];
     }
@@ -42,7 +42,7 @@ export const getDashboardNavItems = (role: DashboardRole): DashboardNavItem[] =>
             { label: "Overview", href: "/dashboard/vendor", icon: LayoutDashboard },
             { label: "Restaurant", href: "/dashboard/vendor/restaurant", icon: Store },
             { label: "Menu", href: "/dashboard/vendor/menu", icon: UtensilsCrossed },
-            { label: "Orders", href: "/dashboard/vendor/orders", icon: ClipboardList },
+            { label: "Orders", href: "/dashboard/vendor/orders", icon: ShoppingBag },
             { label: "Subscription", href: "/dashboard/vendor/subscription", icon: Crown },
         ];
     }
