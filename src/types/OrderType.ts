@@ -1,4 +1,5 @@
 export interface OrderType {
+    _id?: string;
     menuItemId: string;
     itemName: string;
     price: number;
@@ -11,4 +12,6 @@ export interface OrderType {
     customerName?: string;
     customerEmail?: string;
     customerRole?: string;
+    status?: "pending" | "accepted" | "preparing" | "delivered" | "cancelled";
+    createdAt?: string;
 }
