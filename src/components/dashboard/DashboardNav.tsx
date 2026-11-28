@@ -4,7 +4,6 @@ import {
     UtensilsCrossed,
     Users,
     Pizza,
-    Store,
     CreditCard,
     Crown,
     type LucideIcon,
@@ -40,7 +39,6 @@ export const getDashboardNavItems = (role: DashboardRole): DashboardNavItem[] =>
     if (role === "vendor") {
         return [
             { label: "Overview", href: "/dashboard/vendor", icon: LayoutDashboard },
-            { label: "Restaurant", href: "/dashboard/vendor/restaurant", icon: Store },
             { label: "Menu", href: "/dashboard/vendor/menu", icon: UtensilsCrossed },
             { label: "Orders", href: "/dashboard/vendor/orders", icon: ShoppingBag },
             { label: "Subscription", href: "/dashboard/vendor/subscription", icon: Crown },

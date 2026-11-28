@@ -104,7 +104,7 @@ const DashboardSidebar = ({ role }: { role: DashboardRole }) => {
                     <SidebarMenuItem>
                         <SidebarMenuButton
                             render={
-                                <Link href="/settings" className="flex items-center gap-3">
+                                <Link href={`/profile/${role || "customer"}`} className="flex items-center gap-3">
                                     <Settings className="h-4 w-4 shrink-0" />
                                     <span className="leading-none">Settings</span>
                                 </Link>

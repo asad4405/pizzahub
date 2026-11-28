@@ -114,20 +114,12 @@ const Navbar = () => {
                                             Dashboard
                                         </Link>
                                         <Link
-                                            href="/profile"
+                                            href={`/profile/${role || "customer"}`}
                                             onClick={() => setMenuOpen(false)}
                                             className="flex items-center gap-2.5 px-3.5 py-2 text-sm font-medium text-stone-700 transition-colors hover:bg-amber-50 hover:text-red-600"
                                         >
                                             <User className="h-4 w-4" />
                                             Profile
-                                        </Link>
-                                        <Link
-                                            href="/settings"
-                                            onClick={() => setMenuOpen(false)}
-                                            className="flex items-center gap-2.5 px-3.5 py-2 text-sm font-medium text-stone-700 transition-colors hover:bg-amber-50 hover:text-red-600"
-                                        >
-                                            <Settings className="h-4 w-4" />
-                                            Settings
                                         </Link>
                                     </div>
 
